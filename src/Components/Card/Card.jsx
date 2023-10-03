@@ -1,20 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Card.css";
+import { useContext } from "react";
+import { PokeContext } from "../../Context/PokeContext";
 
 function Card() {
-  const [pokemonData, setPokemonData] = useState([]);
-  const pokemonApi = "https://pokeapi.co/api/v2/pokemon/?limit=151";
+  const pokemonData = useContext(PokeContext);
   const [entryValue, setEntryValue] = useState("");
+  console.log(pokemonData);
 
   function handleChange(e) {
     setEntryValue(e.target.value);
   }
-
-  useEffect(() => {
-    fetch(pokemonApi)
-      .then((response) => response.json())
-      .then((data) => setPokemonData(data.results));
-  });
 
   return (
     <>
@@ -33,9 +29,8 @@ function Card() {
               <div className="card" key={index}>
                 <img
                   className="pokemonImg"
-                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${
-                    index + 1
-                  }.png`}
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index +
+                    1}.png`}
                   alt={pokemon.name}
                 />
                 <h2 className="pokemonName">{pokemon.name}</h2>
