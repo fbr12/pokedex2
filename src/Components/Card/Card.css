@@ -33,6 +33,7 @@
     font-family: 'Pokemon Solid', sans-serif;
                                                 
 }
-.searchBar::placeholder{
-    color: violet;    
+a{
+    text-decoration: none;
+    color: black;
 }

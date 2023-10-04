@@ -1,15 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
-import { Card } from "./Components/Card/Card";
-import { Nav } from "./Components/Nav/Nav";
+import { Home } from "./Components/Home/Home";
+import { Pokemon } from "./Components/Pokemon/Pokemon";
 
 function App() {
   return (
-    <>
-      <Nav />
-      <div className="pokemon">
-        <Card />
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="pokemon/:id" element={<Pokemon />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
